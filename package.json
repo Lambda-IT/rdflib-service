@@ -1,0 +1,22 @@
+{
+  "name": "rdfconverter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "watch": "tsc -p . -w",
+    "build": "tsc -p .",
+    "test": "tape tests/**/*.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^7.0.5",
+    "tape": "^4.6.3",
+    "typescript": "^2.2.1"
+  },
+  "dependencies": {
+    "python-shell": "^0.4.0"
+  }
+}
