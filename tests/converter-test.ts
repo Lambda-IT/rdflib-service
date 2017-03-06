@@ -1,5 +1,6 @@
 import * as test from 'tape';
-import { convertN3ToRdfXml, convertRdfXmlToN3 } from '../src/converter';
+import { convertN3ToRdfXml, convertRdf, convertRdfXmlToN3 } from '../src/converter';
+import { ConverterFormat } from '../src/converter-format';
 
 test('convertRdfXmlToN3_ShouldNotThrowAnException', async function (t) {
 

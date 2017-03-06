@@ -6,15 +6,14 @@ import {ConverterFormat} from '../src/converter-format'
 const PythonScriptFile = './src/RdfLibConverter.py'
 
 export async function convertRdfXmlToN3(source: string):  Promise<string> {
-    return convert(source, ConverterFormat.RdfXml, ConverterFormat.N3);
+    return convertRdf(source, ConverterFormat.RdfXml, ConverterFormat.N3);
 }
 
 export async function convertN3ToRdfXml(source: string):  Promise<string> {
-    return convert(source, ConverterFormat.N3, ConverterFormat.RdfXml);
+    return convertRdf(source, ConverterFormat.N3, ConverterFormat.RdfXml);
 }
 
-export async function convert(source: string, sourceFormat: ConverterFormat, targetFormat: ConverterFormat): Promise<string> {
-
+export async function convertRdf(source: string, sourceFormat: ConverterFormat, targetFormat: ConverterFormat): Promise<string> {
     var options = {
         mode: 'text',
         args: [source,  getFormatParamter(sourceFormat), getFormatParamter(targetFormat)]

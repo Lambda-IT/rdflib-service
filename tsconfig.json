@@ -1,9 +1,31 @@
 {
+    "version": "2.2.1",
     "compilerOptions": {
         "module": "commonjs",
-        "target": "es6",
+        "target": "es2017",
+        "declaration": false,
         "noImplicitAny": false,
         "removeComments": true,
-        "sourceMap": true
+        "noLib": false,
+        "preserveConstEnums": true,
+        "suppressImplicitAnyIndexErrors": true,
+        "moduleResolution": "node",
+        "sourceMap": true,
+        "watch": true,
+        "lib": [
+            "es2017",
+            "es2017.object",
+            "es2017.sharedmemory"
+        ]
+    },
+    "exclude": [
+        "node_modules"
+    ],
+    "filesGlob": [
+        "./**/*.ts",
+        "!./node_modules/**/*.ts"
+    ],
+    "atom": {
+        "rewriteTsconfig": false
     }
 }
