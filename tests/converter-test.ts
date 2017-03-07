@@ -21,9 +21,9 @@ test('convertRdfXmlToN3_ShouldNotThrowAnException', async function (t) {
 
     try {
         const n3 = await convertRdfXmlToN3(testRdfXml);
-        t.pass('Conversion succeeded')
+        t.pass('Conversion succeeded');
     } catch(error) {
-        t.fail('Convertion failed')
+        t.fail('Convertion failed');
     }
 
     t.end();
@@ -46,9 +46,9 @@ test('convertN3ToRdfXml_ShouldNotThrowAnException', async function (t) {
 
     try {
         const rdfXml = await convertN3ToRdfXml(testN3);
-        t.pass('Conversion succeeded')
+        t.pass('Conversion succeeded');
     } catch(error) {
-        t.fail('Convertion failed')
+        t.fail('Convertion failed');
     }
 
     t.end();

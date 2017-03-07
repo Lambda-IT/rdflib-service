@@ -2,7 +2,8 @@
   "name": "node-rdflib",
   "version": "0.1.0",
   "description": "Node.js wrapper for rdflib",
-  "main": "converter.ts",
+  "main": "./src/converter.js",
+  "types": "./src/converter.d.ts",
   "scripts": {
     "watch": "tsc -p . -w",
     "build": "tsc -p .",

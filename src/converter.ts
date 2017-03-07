@@ -1,9 +1,9 @@
-import { join } from 'path';
 import * as childProcess from 'child_process';
 import * as pythonShell from 'python-shell'
 import {ConverterFormat} from '../src/converter-format'
+import * as path from 'path';
 
-const PythonScriptFile = './src/RdfLibConverter.py'
+const PythonScriptFile = path.join(__dirname, './RdfLibConverter.py')
 
 export async function convertRdfXmlToN3(source: string):  Promise<string> {
     return convertRdf(source, ConverterFormat.RdfXml, ConverterFormat.N3);

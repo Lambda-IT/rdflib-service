@@ -2,7 +2,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const pythonShell = require("python-shell");
 const converter_format_1 = require("../src/converter-format");
-const PythonScriptFile = './src/RdfLibConverter.py';
+const path = require("path");
+const PythonScriptFile = path.join(__dirname, './RdfLibConverter.py');
 async function convertRdfXmlToN3(source) {
     return convertRdf(source, converter_format_1.ConverterFormat.RdfXml, converter_format_1.ConverterFormat.N3);
 }
