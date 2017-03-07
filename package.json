@@ -7,18 +7,23 @@
   "scripts": {
     "watch": "tsc -p . -w",
     "build": "tsc -p .",
+    "lint": "tslint \"src/**/*.ts\"",
     "test": "tape tests/**/*.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Lambda-IT/node-rdflib.git"
   },
-  "keywords": [],
+  "keywords": [
+    "RDF",
+    "Converter"
+  ],
   "author": "Marc Berchtold (https://www.lambda-it.ch/)",
   "license": "ISC",
   "devDependencies": {
     "@types/node": "^7.0.5",
     "tape": "^4.6.3",
+    "tslint-eslint-rules": "^3.4.0",
     "typescript": "^2.2.1"
   },
   "dependencies": {

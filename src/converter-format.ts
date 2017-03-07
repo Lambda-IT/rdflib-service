@@ -4,7 +4,7 @@ export enum ConverterFormat {
     N3,
     Turtle,
     NTriples,
-    NQuads, 
+    NQuads,
     TriX,
     Trig,
     JsonLd
