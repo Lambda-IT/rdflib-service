@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Lambda-IT/node-rdflib.git"
+    "url": "git+https://github.com/Lambda-IT/node-rdflib.git"
   },
   "keywords": [],
   "author": "Marc Berchtold (https://www.lambda-it.ch/)",
