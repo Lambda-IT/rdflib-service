@@ -22,12 +22,12 @@ export async function convertRdf(source: string, sourceFormat: ConverterFormat, 
     return new Promise<string>((resolve, reject) => {
         pythonShell.run(PythonScriptFile, options, function (error, result: Array<string>) {
             if (error) {
-                reject(error);
+                return reject(error);
             }
 
             const normalizedValue = result.join('');
 
-            resolve(normalizedValue)
+            return resolve(normalizedValue)
         });
     });
 }
