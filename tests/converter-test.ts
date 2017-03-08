@@ -17,7 +17,7 @@ test('convertRdfXmlToN3_ShouldNotThrowAnException', async function (t) {
 		<dc:format>image/tiff</dc:format>
 		</rdf:Description>
 	</rdf:RDF>
-    `
+    `;
 
     try {
         const n3 = await convertRdfXmlToN3(testRdfXml);

@@ -13,40 +13,49 @@ async function convertN3ToRdfXml(source) {
 }
 exports.convertN3ToRdfXml = convertN3ToRdfXml;
 async function convertRdf(source, sourceFormat, targetFormat) {
-    var options = {
+    const options = {
         mode: 'text',
         args: [source, getFormatParamter(sourceFormat), getFormatParamter(targetFormat)]
     };
     return new Promise((resolve, reject) => {
         pythonShell.run(PythonScriptFile, options, function (error, result) {
             if (error) {
-                reject(error);
+                return reject(error);
             }
-            var normalizedValue = result.join('');
-            resolve(normalizedValue);
+            const normalizedValue = result.join('');
+            return resolve(normalizedValue);
         });
     });
 }
 exports.convertRdf = convertRdf;
 function getFormatParamter(format) {
-    if (format === converter_format_1.ConverterFormat.N3)
+    if (format === converter_format_1.ConverterFormat.N3) {
         return 'n3';
-    else if (format === converter_format_1.ConverterFormat.NQuads)
+    }
+    else if (format === converter_format_1.ConverterFormat.NQuads) {
         return 'nquads';
-    else if (format === converter_format_1.ConverterFormat.NTriples)
+    }
+    else if (format === converter_format_1.ConverterFormat.NTriples) {
         return 'nt';
-    else if (format === converter_format_1.ConverterFormat.PrettyXml)
+    }
+    else if (format === converter_format_1.ConverterFormat.PrettyXml) {
         return 'pretty-xml';
-    else if (format === converter_format_1.ConverterFormat.RdfXml)
+    }
+    else if (format === converter_format_1.ConverterFormat.RdfXml) {
         return 'xml';
-    else if (format === converter_format_1.ConverterFormat.TriX)
+    }
+    else if (format === converter_format_1.ConverterFormat.TriX) {
         return 'trix';
-    else if (format === converter_format_1.ConverterFormat.Trig)
+    }
+    else if (format === converter_format_1.ConverterFormat.Trig) {
         return 'trig';
-    else if (format === converter_format_1.ConverterFormat.Turtle)
+    }
+    else if (format === converter_format_1.ConverterFormat.Turtle) {
         return 'turtle';
-    else if (format === converter_format_1.ConverterFormat.JsonLd)
+    }
+    else if (format === converter_format_1.ConverterFormat.JsonLd) {
         return 'json-ld';
+    }
     return 'xml';
 }
 //# sourceMappingURL=converter.js.map
