@@ -25,7 +25,7 @@ export async function convertRdf(source: string, sourceFormat: ConverterFormat, 
                 return reject(error);
             }
 
-            const normalizedValue = result.join('');
+            const normalizedValue = result.join(''); //.replace(/(\r\n|\n|\r)/gm, ' ');
 
             return resolve(normalizedValue);
         });
