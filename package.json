@@ -6,7 +6,6 @@
   "types": "./src/converter.d.ts",
   "scripts": {
     "postinstall": "pip install rdflib && pip install rdflib-jsonld",
-    "watch": "tsc -p . -w",
     "build": "tsc -p .",
     "lint": "tslint \"src/**/*.ts\"",
     "test": "tape tests/**/*.js"
