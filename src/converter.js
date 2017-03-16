@@ -2,7 +2,11 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const pythonShell = require("python-shell");
 const converter_format_1 = require("../src/converter-format");
+const uuid = require("node-uuid");
 const path = require("path");
+const _fs = require("fs");
+const bluebird_1 = require("bluebird");
+const fs = bluebird_1.promisifyAll(_fs);
 const PythonScriptFile = path.join(__dirname, './RdfLibConverter.py');
 async function convertRdfXmlToN3(source) {
     return convertRdf(source, converter_format_1.ConverterFormat.RdfXml, converter_format_1.ConverterFormat.N3);
@@ -13,17 +17,19 @@ async function convertN3ToRdfXml(source) {
 }
 exports.convertN3ToRdfXml = convertN3ToRdfXml;
 async function convertRdf(source, sourceFormat, targetFormat) {
+    const tempFileName = path.join(process.env.NODE_PATH, uuid.v4());
     const options = {
         mode: 'text',
-        args: [source, getFormatParamter(sourceFormat), getFormatParamter(targetFormat)]
+        args: [source, getFormatParamter(sourceFormat), getFormatParamter(targetFormat), tempFileName]
     };
     return new Promise((resolve, reject) => {
-        pythonShell.run(PythonScriptFile, options, function (error, result) {
+        pythonShell.run(PythonScriptFile, options, async function (error, result) {
             if (error) {
                 return reject(error);
             }
-            const normalizedValue = result.join('');
-            return resolve(normalizedValue);
+            let data = await fs.readFileAsync(tempFileName);
+            fs.unlinkAsync(tempFileName);
+            return resolve(data.toString());
         });
     });
 }

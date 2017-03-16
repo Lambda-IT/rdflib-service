@@ -1,7 +1,12 @@
 import * as childProcess from 'child_process';
 import * as pythonShell from 'python-shell';
 import {ConverterFormat} from '../src/converter-format';
+import * as uuid from 'node-uuid';
 import * as path from 'path';
+import * as _fs from 'fs';
+import { promisifyAll } from 'bluebird';
+
+const fs: any = promisifyAll(_fs);
 
 const PythonScriptFile = path.join(__dirname, './RdfLibConverter.py');
 
@@ -14,20 +19,22 @@ export async function convertN3ToRdfXml(source: string):  Promise<string> {
 }
 
 export async function convertRdf(source: string, sourceFormat: ConverterFormat, targetFormat: ConverterFormat): Promise<string> {
+    const tempFileName = path.join(process.env.NODE_PATH, uuid.v4());
     const options = {
         mode: 'text',
-        args: [source, getFormatParamter(sourceFormat), getFormatParamter(targetFormat)]
+        args: [source, getFormatParamter(sourceFormat), getFormatParamter(targetFormat), tempFileName]
     };
 
     return new Promise<string>((resolve, reject) => {
-        pythonShell.run(PythonScriptFile, options, function (error, result: Array<string>) {
+        pythonShell.run(PythonScriptFile, options, async function (error, result: Array<string>) {
             if (error) {
                 return reject(error);
             }
 
-            const normalizedValue = result.join(''); //.replace(/(\r\n|\n|\r)/gm, ' ');
+            let data = await fs.readFileAsync(tempFileName);
+            fs.unlinkAsync(tempFileName);
 
-            return resolve(normalizedValue);
+            return resolve(data.toString());
         });
     });
 }

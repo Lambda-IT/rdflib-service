@@ -15,7 +15,7 @@ test('convertRdfXmlToN3_ShouldNotThrowAnException', async function (t) {
     }
     t.end();
 });
-test('convertN3ToRdfXml_ShouldNotThrowAnException', async function (t) {
+test.skip('convertN3ToRdfXml_ShouldNotThrowAnException', async function (t) {
     const testN3 = `@prefix dc: <http://purl.org/dc/elements/1.1/> .
     @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
     @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -26,7 +26,7 @@ test('convertN3ToRdfXml_ShouldNotThrowAnException', async function (t) {
         dc:subject [ a rdf:Bag ;
             rdf:_1 "XMP" ;
             rdf:_2 "SDK" ;
-            rdf:_3 "Test2" ] .
+            rdf:_3 "Test2üöä" ] .
     `;
     try {
         const rdfXml = await converter_1.convertN3ToRdfXml(testN3);
