@@ -1,0 +1,3 @@
+rdflib
+Flask==0.12
+flask-restplus
