@@ -1,28 +1,29 @@
 # rdflib-service
-Microservice for rdflib (https://github.com/RDFLib/rdflib).
+Microservice for [rdflib](https://github.com/RDFLib/rdflib).
 
-#Getting Started
+## Getting Started
 
-## Request
-Parameters:
-sourceFormat: xml, n3, turtle, nquads, nt, trix, json-ld
-targetFormat: xml, pretty-xml, n3, turtle, nquads, nt, trix, json-ld
-source: RDF Text
+### Methods
+#### Translate RDF formats
+**URL** /api/translate  
+**HTTP Method** POST   
+**Content-Type** application/json   
+**JSON Payload**
+* **sourceFormat** Possible values: xml, n3, turtle, nquads, nt, trix, json-ld
+* **targetFormat**: Possible values: xml, pretty-xml, n3, turtle, nquads, nt, trix, json-ld
+* **source** RDF Text
 
-
-### Example
-POST /api/translate HTTP/1.1
-Host: localhost
-Content-Type: application/json
-
+#### Example
+```json
 {
 	"sourceFormat": "n3",
 	"targetFormat": "pretty-xml",
 	"source": "%40prefix%20gr%3A%20%3Chttp%3A%2F%2Fpurl.org%2Fgoodrelations%2Fv1%23%3E%20.%0A%0A%3Chttp%3A%2F%2Fwww.acme.com%2F%23store%3E%20a%20gr%3ALocation%3B%0A%20%20%20%20gr%3AhasOpeningHoursSpecification%20%5B%20a%20gr%3AOpeningHoursSpecification%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20gr%3Aopens%20%2208%3A00%3A00%22%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20gr%3Acloses%20%2220%3A00%3A00%22%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20gr%3AhasOpeningHoursDayOfWeek%20gr%3AFriday%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20gr%3AMonday%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20gr%3AThursday%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20gr%3ATuesday%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20gr%3AWednesday%20%5D%3B%0A%20%20%20%20gr%3Aname%20%22Hepp%27s%20Happy%20Burger%20Restaurant%22%20.%0A"
 }
+```
 
-# Features
-## Converter Functionality
+## Features
+### Converter Functionality
 Supports conversation for the following formats:
 - RDF/XML
 - N3
@@ -34,28 +35,28 @@ Supports conversation for the following formats:
 - RDFa
 - JsonLd
 
-#Version information
-## 1.0.0
+## Version information
+### 1.0.0
 Features:
 - Conversation between the common rdf formats
 
-# Installation
+## Installation
 
-## Flask Built-in web server
+### Flask Built-in web server
 1. pip install -r requirements.txt
 2. cd app
 3. python main.py
 
-## Docker
+### Docker
 Use the microservice with a docker image (using nginx and flask)
 Yo can find more information about the base image: https://github.com/tiangolo/uwsgi-nginx-flask-docker
-### Build your own Docker image
+#### Build your own Docker image
 docker build -t rdflib-service:1.0.0 .
-### Run the image
+#### Run the image
 docker run -d --name rdflib-service -p 5000:80 rdflib-service:1.0.0
-### Optional: Push you image to a docker repository
-- Login (https://docs.docker.com/engine/reference/commandline/login/#options)
-- Push the image (https://docs.docker.com/engine/reference/commandline/push/)
+#### Optional: Push you image to a docker repository
+*  [Login Docker Reference](https://docs.docker.com/engine/reference/commandline/login/#options)
+* [Push Docker Reference](https://docs.docker.com/engine/reference/commandline/push/)
 
 
 
