@@ -1,6 +1,19 @@
 # rdflib-service
 Microservice for [rdflib](https://github.com/RDFLib/rdflib).
 
+## Features
+### Converter Functionality
+Supports conversation for the following formats:
+- RDF/XML
+- N3
+- NTriples
+- N-Quads
+- Turtle
+- TriX
+- Trig
+- RDFa
+- JsonLd
+
 ## Getting Started
 
 ### Methods
@@ -21,19 +34,6 @@ Microservice for [rdflib](https://github.com/RDFLib/rdflib).
 	"source": "%40prefix%20gr%3A%20%3Chttp%3A%2F%2Fpurl.org%2Fgoodrelations%2Fv1%23%3E%20.%0A%0A%3Chttp%3A%2F%2Fwww.acme.com%2F%23store%3E%20a%20gr%3ALocation%3B%0A%20%20%20%20gr%3AhasOpeningHoursSpecification%20%5B%20a%20gr%3AOpeningHoursSpecification%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20gr%3Aopens%20%2208%3A00%3A00%22%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20gr%3Acloses%20%2220%3A00%3A00%22%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20gr%3AhasOpeningHoursDayOfWeek%20gr%3AFriday%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20gr%3AMonday%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20gr%3AThursday%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20gr%3ATuesday%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20gr%3AWednesday%20%5D%3B%0A%20%20%20%20gr%3Aname%20%22Hepp%27s%20Happy%20Burger%20Restaurant%22%20.%0A"
 }
 ```
-
-## Features
-### Converter Functionality
-Supports conversation for the following formats:
-- RDF/XML
-- N3
-- NTriples
-- N-Quads
-- Turtle
-- TriX
-- Trig
-- RDFa
-- JsonLd
 
 ## Version information
 ### 1.0.0
