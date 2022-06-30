@@ -1,0 +1,24 @@
+_:n3-1 <http://zem.ch/Filename> "asset.originalName" .
+_:n3-1 <http://zem.ch/AssetState> "asset.state" .
+_:n3-1 <http://zem.ch/Medientyp_Format> "Querformat" .
+_:n3-1 <http://www.mediathek.admin.ch/zem/AssetType> "PIC" .
+_:n3-1 <http://purl.org/dc/elements/1.1/format> "image/jpeg" .
+_:n3-1 <http://purl.org/dc/elements/1.1/rights> _:rights .
+_:n3-1 <http://purl.org/dc/elements/1.1/description> _:description .
+_:n3-1 <http://purl.org/dc/elements/1.1/title> _:title .
+_:n3-1 <http://purl.org/dc/elements/1.1/creator> _:creator .
+_:n3-1 <http://purl.org/dc/elements/1.1/subject> _:subject .
+_:n3-1 <http://purl.org/dc/elements/1.1/date> "2010-07-01" .
+_:rights <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> .
+_:rights <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1> "vbs/ddps - Komm V"@de .
+_:description <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Alt> .
+_:description <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1> "Rund 15 Soldaten eines Betriebsdetachements des Lehrverbands Panzer/Artillerie und Mitarbeiter des Schiessplatzes durchsuchten in den letzten beiden Augustwochen 2017 zusammen mit Spezialisten für Kampfmittelbeseitigung den Zielhang nach Munitionsresten und Blindgängern."@de .
+_:title <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Alt> .
+_:title <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1> "Munitionsresten und Blindgänger einsammeln"@de .
+_:creator <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Seq> .
+_:creator <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1> "Markus Niederhauser"@de .
+_:subject <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Bag> .
+_:subject <http://www.w3.org/1999/02/22-rdf-syntax-ns#_1> "Artilleriegeschosse"@de .
+_:subject <http://www.w3.org/1999/02/22-rdf-syntax-ns#_2> "Blindgänger"@de .
+_:subject <http://www.w3.org/1999/02/22-rdf-syntax-ns#_3> "Geschosssplitter"@de .
+_:subject <http://www.w3.org/1999/02/22-rdf-syntax-ns#_4> "Munitionsreste"@de .
