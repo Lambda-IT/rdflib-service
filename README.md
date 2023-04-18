@@ -40,6 +40,11 @@ Supports conversation for the following formats:
 Features:
 - Conversation between the common rdf formats
 
+### 1.1.0
+Refactor:
+- Update dependencies and fix new import style
+- Update Dockerfile and publish in public registry
+
 ## Installation
 
 ### Flask Built-in web server
