@@ -51,9 +51,15 @@ Features:
 Use the microservice with a docker image (using nginx and flask)
 Yo can find more information about the base image: https://github.com/tiangolo/uwsgi-nginx-flask-docker
 #### Build your own Docker image
-docker build -t rdflib-service:1.0.0 .
+```bash
+docker build -t registry.lambda-it.ch/library/rdflib-service:1.1.0 .
+```
 #### Run the image
-docker run -d --name rdflib-service -p 5000:80 rdflib-service:1.0.0
+```bash
+docker run --rm --name rdflib-service -p 5000:80 registry.lambda-it.ch/library/rdflib-service:1.1.0
+docker run -d --name rdflib-service -p 5000:80 registry.lambda-it.ch/library/rdflib-service:1.1.0
+```
+
 #### Optional: Push you image to a docker repository
 *  [Login Docker Reference](https://docs.docker.com/engine/reference/commandline/login/#options)
 * [Push Docker Reference](https://docs.docker.com/engine/reference/commandline/push/)

@@ -1,6 +1,6 @@
 import sys
 from flask import Flask, abort, request
-from flask_restplus import Resource, Api, reqparse
+from flask_restx import Resource, Api, reqparse
 from rdflib import Graph
 from rdflib.plugin import PluginException
 from urllib import parse
@@ -12,13 +12,15 @@ api = Api(app, version='1.0.0', title='rdflib-service'
           , description='Translation between different RDF formats')
 
 translate_parser = reqparse.RequestParser()
-translate_parser.add_argument('sourceFormat', type=str, location='json', required=True)
-translate_parser.add_argument('targetFormat', type=str, location='json', required=True)
-translate_parser.add_argument('source', type=str, location='json', required=True)
+translate_parser.add_argument('sourceFormat', location='json', required=True)
+translate_parser.add_argument('targetFormat', location='json', required=True)
+translate_parser.add_argument('source', location='json', required=True)
 
 
 @api.route('/api/translate')
 class Translator(Resource):
+    @api.doc('post_data_to_translate')
+    @api.expect(translate_parser)
     def post(self):
         try:
             args = translate_parser.parse_args()
@@ -27,7 +29,7 @@ class Translator(Resource):
             source = parse.unquote(args['source'])
 
             g = Graph().parse(data=source, format=source_format)
-            result = g.serialize(format=target_format).decode('UTF-8')
+            result = g.serialize(format=target_format)
 
             response_mime_type = evaluate_mime_type(target_format)
 

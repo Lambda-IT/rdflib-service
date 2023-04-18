@@ -1,3 +1,4 @@
 rdflib
-Flask==0.12
-flask-restplus
+Flask==2.2.3
+flask-restx==1.1.0
+Werkzeug==2.2.3
